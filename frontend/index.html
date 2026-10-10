@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Portal</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+                    SP
+                </div>
+
+                <div>
+                    <h2>Student Portal</h2>
+                    <span>Cloud Dashboard</span>
+                </div>
+
+            </div>
+
+
+            <nav>
+
+                <a href="#" class="active">
+                    <span>▣</span>
+                    Dashboard
+                </a>
+
+            </nav>
+
+
+            <div class="sidebar-footer">
+
+                <span class="status-dot"></span>
+
+                AWS Backend Online
+
+            </div>
+
+        </aside>
+
+
+        <!-- Main Content -->
+        <main class="main">
+
+
+            <!-- Header -->
+            <header class="topbar">
+
+                <div>
+
+                    <h1>Dashboard</h1>
+
+                    <p>
+                        Manage student records from one place.
+                    </p>
+
+                </div>
+
+
+                <div class="cloud-badge">
+
+                    ☁ AWS Connected
+
+                </div>
+
+            </header>
+
+
+            <!-- Statistics -->
+            <section class="stats">
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        👥
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Total Students
+                        </span>
+
+                        <strong id="studentCount">
+                            -
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        ☁
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Backend
+                        </span>
+
+                        <strong>
+                            AWS Lambda
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        🗄
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Database
+                        </span>
+
+                        <strong>
+                            PostgreSQL
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- Add Student -->
+            <section class="card">
+
+
+                <div class="card-header">
+
+                    <div>
+
+                        <h2>
+                            Add Student
+                        </h2>
+
+                        <p>
+                            Create a new student record.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <form id="studentForm">
+
+
+                    <div class="input-group">
+
+                        <label for="name">
+                            Student Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            placeholder="Enter student name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label for="email">
+                            Email
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="student@example.com"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label for="course">
+                            Course
+                        </label>
+
+                        <input
+                            type="text"
+                            id="course"
+                            placeholder="e.g. B.Tech CSE"
+                        >
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label for="year">
+                            Year
+                        </label>
+
+                        <input
+                            type="number"
+                            id="year"
+                            placeholder="1 - 4"
+                            min="1"
+                            max="4"
+                        >
+
+                    </div>
+
+
+                    <button type="submit">
+                        + Add Student
+                    </button>
+
+
+                </form>
+
+
+                <p id="message"></p>
+
+
+            </section>
+
+
+            <!-- Student Table -->
+            <section class="card">
+
+
+                <div class="card-header student-header">
+
+                    <div>
+
+                        <h2>
+                            Student Records
+                        </h2>
+
+                        <p>
+                            All registered student records.
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        id="refreshBtn"
+                        class="refresh-btn"
+                    >
+                        ↻ Refresh
+                    </button>
+
+                </div>
+
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>ID</th>
+
+                                <th>Student</th>
+
+                                <th>Email</th>
+
+                                <th>Course</th>
+
+                                <th>Year</th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="studentsList">
+
+                            <tr>
+
+                                <td
+                                    colspan="5"
+                                    class="loading"
+                                >
+                                    Loading students...
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+            </section>
+
+
+        </main>
+
+    </div>
+
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>
